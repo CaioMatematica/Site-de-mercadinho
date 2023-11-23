@@ -24,26 +24,25 @@
     </header>
 
     <main id="Corpo-m1"> <!-- Corpo principal -->
-        <p>Digite apenas os dados que deseja alterar</p>
         <form action="update2.php" method="post">
         <div class="Campo-form1">
                 <label>Nome:</label>
-                <input type="text" name="nome" id="Nome" placeholder="Digite seu nome completo" maxlength="120" autofocus required>
+                <?php echo "<input type=\"text\" value = ".$_SESSION['nome']."  name=\"nome\" id=\"Nome\" maxlength=\"120\" autofocus required>"; ?>
             </div>
 
             <div class="Campo-form1">
                 <label>Senha:</label>
-                <input type="password" name="senha" id="Nome" placeholder="Digite uma senha segura" maxlength="20" autofocus required>
+                <?php echo "<input type=\"text\" value = ".$_SESSION['senha']."  name=\"senha\" id=\"Nome\" maxlength=\"120\" autofocus required>"; ?>
             </div>
 
             <div class="Campo-form1">
                 <label>Telefone:</label>
-                <input type="tel" name="telefone" id="Telefone" placeholder="(xx)xxxxx-xxxx" maxlength="14" required>
+                <?php echo "<input type=\"text\" value = ".$_SESSION['telefone']."  name=\"telefone\" id=\"Nome\" maxlength=\"120\" autofocus required>"; ?>
             </div>
 
             <div class="Campo-form1">
                 <label>Email:</label>
-                <input type="email" name="email" id="Email" placeholder="Digite seu email" maxlength="230" required>
+                <?php echo "<input type=\"text\" value = ".$_SESSION['email']."  name=\"email\" id=\"Nome\" maxlength=\"120\" autofocus required>"; ?>
             </div>
 
             <div class="Botoes">

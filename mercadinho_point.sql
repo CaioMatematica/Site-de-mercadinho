@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 26/10/2023 às 17:10
--- Versão do servidor: 10.4.28-MariaDB
--- Versão do PHP: 8.2.4
+-- Host: localhost
+-- Generation Time: Nov 21, 2023 at 09:16 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `mercadinho_point`
+-- Database: `mercadinho_point`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `cliente`
+-- Table structure for table `cliente`
 --
 
 CREATE TABLE `cliente` (
@@ -36,64 +36,94 @@ CREATE TABLE `cliente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `cliente`
+-- Dumping data for table `cliente`
 --
 
 INSERT INTO `cliente` (`cli_id`, `cli_nome`, `cli_senha`, `cli_telefone`, `cli_email`) VALUES
-(1, 'Caio Henrique Marioto de Moraes', '12345', '12996630970', 'caiomatematicanota10@gmail.com'),
-(2, 'daniel', '12344321', '12997783146', 'caiomatematicanota10@gmail.com');
+(1, 'Caio', '12345', '12996630971', 'caiomatematicanota10@gmail.com'),
+(2, 'daniel', '12344321', '12997783146', 'daniel@gmail.com');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `funcionario`
+-- Table structure for table `funcionario`
 --
 
 CREATE TABLE `funcionario` (
   `fun_id` int(11) NOT NULL,
   `fun_nome` varchar(140) NOT NULL,
   `fun_email` varchar(140) NOT NULL,
-  `fun_senha` int(20) NOT NULL
+  `fun_senha` int(20) NOT NULL,
+  `fun_telefone` varchar(14) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `funcionario`
+-- Dumping data for table `funcionario`
 --
 
-INSERT INTO `funcionario` (`fun_id`, `fun_nome`, `fun_email`, `fun_senha`) VALUES
-(1, 'João', 'joao@gmail.com', 5555);
+INSERT INTO `funcionario` (`fun_id`, `fun_nome`, `fun_email`, `fun_senha`, `fun_telefone`) VALUES
+(1, 'João', 'joao@gmail.com', 5555, '12996609090');
+
+-- --------------------------------------------------------
 
 --
--- Índices para tabelas despejadas
+-- Table structure for table `produto`
+--
+
+CREATE TABLE `produto` (
+  `pro_id` int(11) NOT NULL,
+  `pro_nome` varchar(100) NOT NULL,
+  `pro_descricao` text DEFAULT NULL,
+  `pro_valor` decimal(5,2) NOT NULL,
+  `pro_estoque` int(11) NOT NULL,
+  `pro_categoria` varchar(40) DEFAULT NULL,
+  `pro_img1` blob NOT NULL,
+  `pro_img2` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Indexes for dumped tables
 --
 
 --
--- Índices de tabela `cliente`
+-- Indexes for table `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`cli_id`);
 
 --
--- Índices de tabela `funcionario`
+-- Indexes for table `funcionario`
 --
 ALTER TABLE `funcionario`
   ADD PRIMARY KEY (`fun_id`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- Indexes for table `produto`
+--
+ALTER TABLE `produto`
+  ADD PRIMARY KEY (`pro_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `cliente`
+-- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
   MODIFY `cli_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT de tabela `funcionario`
+-- AUTO_INCREMENT for table `funcionario`
 --
 ALTER TABLE `funcionario`
   MODIFY `fun_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `produto`
+--
+ALTER TABLE `produto`
+  MODIFY `pro_id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

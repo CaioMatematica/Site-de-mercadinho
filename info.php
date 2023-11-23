@@ -65,12 +65,14 @@
         $id = $_SESSION['id'];
         $nome = $_SESSION['nome'];
         $email = $_SESSION['email'];
+        $telefone = $_SESSION['telefone'];
 
         echo "
         <ul>
             <li><strong>ID</strong>:$id</li>
             <li><strong>Nome</strong>:$nome</li>
             <li><strong>Email</strong>:$email</li>
+            <li><strong>Telefone</strong>:$telefone</li>
         </ul>
         ";
         

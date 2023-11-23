@@ -46,10 +46,10 @@
         $senha = $_POST['senha'];
         $tipo_de_pessoa = $_POST['tipo_de_pessoa'];
         if($tipo_de_pessoa == "funcionario"){
-            $sql = "SELECT fun_id,fun_nome,fun_email,fun_senha FROM funcionario WHERE fun_email = '$email' AND fun_senha = '$senha';";
+            $sql = "SELECT fun_id,fun_nome,fun_email,fun_senha,fun_telefone FROM funcionario WHERE fun_email = '$email' AND fun_senha = '$senha';";
         }
         else{
-            $sql = "SELECT cli_id,cli_nome,cli_email,cli_senha FROM cliente WHERE cli_email = '$email' AND cli_senha = '$senha';";
+            $sql = "SELECT cli_id,cli_nome,cli_email,cli_senha,cli_telefone FROM cliente WHERE cli_email = '$email' AND cli_senha = '$senha';";
         }
 
 
@@ -69,13 +69,21 @@
             $nome = $dados[1];
             $email = $dados[2];
             $senha = $dados[3];
+            $telefone = $dados[4];
             echo "<p>Seja bem-vindo novamente $nome.</p>";
+            if($tipo_de_pessoa == "cliente"){
             header('Location:Index.php') ;
+            }
+            else{
+                header('Location: Indexf.php');
+            }
         }
             $_SESSION['id'] = "$id";
             $_SESSION['nome'] = "$nome";
             $_SESSION['email'] = "$email";
+            $_SESSION['telefone'] = "$telefone";
             $_SESSION['senha'] = "$senha";
+            $_SESSION['tipo_de_usuario'] = "$tipo_de_pessoa";
         }
 
         ?>
